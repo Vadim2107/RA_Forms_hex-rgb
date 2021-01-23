@@ -81,16 +81,17 @@ class App extends React.Component {
   
   
   render() {
-    const props = {};
-    if (this.state.color.length === 7) {      
+    
+    if (this.state.color.length === 7) {
+      const props = {};
       if (this.state.isWarning) {
         props.className = 'warning';
       } else {
         props.style = {
           backgroundColor: this.state.color
         };
-      }
-    }
+      }      
+    // }
     
     // console.log(props);
     console.log(typeof this.state.color);
@@ -112,6 +113,7 @@ class App extends React.Component {
         <div name="result" className="message js-message">{this.state.result}</div>
       </form>
     );
+    }
   }
 }
 
