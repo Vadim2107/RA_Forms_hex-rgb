@@ -78,7 +78,7 @@ class App extends React.Component {
       <form {...props} onSubmit={this.onSubmit}>
         <input
           value={this.state.color}      
-          // onChange={this.change.bind(this)}
+          onChange={this.change.bind(this)}
           type="text"
           className="hex-field js-hex-field"
           placeholder="#000000" />
