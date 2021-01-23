@@ -15,7 +15,7 @@ form {
   transition: background .4s ease-in-out;
 }
 
-figure.warning {
+form.warning {
   background: #e74c3c;
 }
 
