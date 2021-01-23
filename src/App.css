@@ -1,38 +1,47 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  background: #34495e;
+  color: #fff;
+  transition: background .4s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+figure.warning {
+  background: #e74c3c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hex-field {
+  box-sizing: border-box;
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+}
+
+.message {
+  text-align: center;
+  box-sizing: border-box;
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 10px;
+  margin-top: 5px;
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  content: '';
+  -webkit-user-select: all;  /* Chrome 49+ */
+  -moz-user-select: all;     /* Firefox 43+ */
+  -ms-user-select: all;      /* No support yet */
+  user-select: all;
 }
