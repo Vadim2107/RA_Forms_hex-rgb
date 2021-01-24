@@ -1,3 +1,11 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/jooh4ivlsiy6x90i?svg=true)](https://ci.appveyor.com/project/Vadim2107/ra-forms-hex-rgb)
+
+### [GitHub Pages](https://vadim2107.github.io/RA_Forms_hex-rgb/)
+
+# Домашнее задание к курсу «React: библиотека № 1 в современной фронтенд-разработке»
+
+## RA_Forms_hex-rgb
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

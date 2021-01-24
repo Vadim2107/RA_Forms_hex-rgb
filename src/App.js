@@ -1,15 +1,10 @@
 import React from 'react';
 import './App.css';
-// import HexInput from './components/HexInput'
+import HexInput from './components/HexInput'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   isWarning: false,
-    //   color: props.color,      
-    //   result: this.convert(props.color)
-    // };
     this.state = {
       isWarning: false,
       color: "",
@@ -26,47 +21,36 @@ class App extends React.Component {
     return result ? `rgb(${result.map(i => parseInt(i, 16)).join(', ')})` : null;
   }
 
-  checkColor(color) {
-    // if (this.state.color.length === 7) {
-      return /^#?([\da-f]{6})$/i.test(color);
-    // }    
-  }
-
-  fixColor(color) {    
-      // return color[0] === '#' && color;
-      return this.state.color[0] === '#' && color;
+  checkColor(hex) {
+      return /^#?([\da-f]{6})$/i.test(hex);
   }
 
   onChange(evt) {
-    this.setState({ color: evt.target.value })
-    if (this.state.color.length === 7) {      
-      if (this.checkColor(evt)) {
-        // this.setState({ color: this.fixColor(evt) })
-        
-          this.setState({
-            isWarning: false,
-            result: this.convert(this.state.color)
-          })        
+    const hex = evt.target.value;
+    this.setState({ color: hex })
+    if (hex.length === 7) {      
+      if (this.checkColor(hex)) {
+        this.setState({
+          isWarning: false,
+          result: this.convert(hex)
+        })
       } else {
         this.setState({
           isWarning: true,
           result: 'Ошибка!'
         })
       }
+    } else if (hex.length !== 7) {
+      this.setState({
+        isWarning: false,
+        result: ''
+      })
     }
-    console.log(this.state.color.length);
   }
-
-  // onChange(e) {
-  //   this.change.bind(this);
-  // }
 
   onSubmit = evt => {
     evt.preventDefault();
-    
-    console.log(this.state);
-    }
-  
+  }
   
   render() {
     const props = {};    
@@ -76,27 +60,14 @@ class App extends React.Component {
         props.style = {
           backgroundColor: this.state.color
         };
-      }      
-    
-    
-    // console.log(props);
-    console.log(typeof this.state.color);
-    console.log(this.state.color.length); 
-    
+      }
     
     return (
       <form {...props} onSubmit={this.onSubmit}>
-        <input
-          name="color"
-          value={this.state.color}      
-          onChange={this.onChange.bind(this)}
-          type="text"
-          className="hex-field js-hex-field"
-          placeholder="#000000" />
-        {/* <HexInput
+        <HexInput
           value={this.state.color}
-          onChange={this.onChange.bind(this)} /> */}
-        <div name="result" className="message js-message">{this.state.result}</div>
+          onChange={this.onChange.bind(this)} />
+        <div name="result" className="rgb">{this.state.result}</div>
       </form>
     );    
   }
