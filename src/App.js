@@ -38,35 +38,23 @@ class App extends React.Component {
   }
 
   onChange(evt) {
-    // if (this.state.color.length === 7) {      
+    this.setState({ color: evt.target.value })
+    if (this.state.color.length === 7) {      
       if (this.checkColor(evt)) {
-        this.setState({ color: evt.target.value })
         // this.setState({ color: this.fixColor(evt) })
-        if (this.state.color.length === 7) {
+        
           this.setState({
             isWarning: false,
             result: this.convert(this.state.color)
-          })
-        }
+          })        
       } else {
-        this.setState({ color: evt.target.value })
-        // this.setState({ color: this.fixColor(evt) })
-        if (this.state.color.length === 7) {
-          this.setState({
-            isWarning: true,
-            result: 'Ошибка!'
-          })
-        }
-
-        // this.setState({
-        //   isWarning: true,
-        //   color: evt.target.value,
-        //   // color: this.fixColor(evt),                    
-        //   result: 'Ошибка!'
-        // })
+        this.setState({
+          isWarning: true,
+          result: 'Ошибка!'
+        })
       }
-    // }
-    console.log(this.state.color);
+    }
+    console.log(this.state.color.length);
   }
 
   // onChange(e) {
@@ -81,17 +69,15 @@ class App extends React.Component {
   
   
   render() {
-    const props = {};
-    // if (this.state.color.length === 7) {
-      
+    const props = {};    
       if (this.state.isWarning) {
         props.className = 'warning';
-      } else {
+      } else if (this.state.color.length === 7) {
         props.style = {
           backgroundColor: this.state.color
         };
       }      
-    // }
+    
     
     // console.log(props);
     console.log(typeof this.state.color);
